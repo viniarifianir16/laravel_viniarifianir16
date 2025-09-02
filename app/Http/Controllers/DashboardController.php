@@ -41,10 +41,6 @@ class DashboardController extends Controller
         return view('pages.dashboard.dashboard', [
             'countHospitals' => $countHospitals,
             'countPatients' => $countPatients,
-            'breadcrumbs' => [
-                ['label' => 'Data Rumah Sakit', 'url' => route('hospital.index')],
-                ['label' => 'Tambah Data', 'url' => route('hospital.create')],
-            ],
         ]);
     }
 
