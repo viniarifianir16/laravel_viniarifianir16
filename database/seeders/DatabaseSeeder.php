@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         Hospital::factory()
-            ->count(15)
-            ->hasPatients(5)
+            ->count(10)
+            ->hasPatients(15)
             ->create();
 
         // $this->call([

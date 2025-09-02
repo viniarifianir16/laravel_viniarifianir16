@@ -7,8 +7,8 @@
                     <i class="bi bi-pencil-square text-3xl"></i>
                 </div>
                 <div class="col-span-2 py-5 text-start">
-                    <h4 class="text-xl font-bold">1</h4>
-                    <p class="text-md">Postingan Berita</p>
+                    <h4 class="text-xl font-bold">{{ $countHospitals }}</h4>
+                    <p class="text-md">Rumah Sakit</p>
                 </div>
             </div>
             <div
@@ -17,8 +17,8 @@
                     <i class="bi bi-check2-circle text-3xl"></i>
                 </div>
                 <div class="col-span-2 py-5 text-start">
-                    <h4 class="text-xl font-bold">2</h4>
-                    <p class="text-md">Berita Aktif</p>
+                    <h4 class="text-xl font-bold">{{ $countPatients }}</h4>
+                    <p class="text-md">Pasien</p>
                 </div>
             </div>
             <div
