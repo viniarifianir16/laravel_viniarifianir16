@@ -3,6 +3,7 @@
 ```
 git clone https://github.com/viniarifianir16/laravel_viniarifianir16.git
 composer install
+php artisan migrate --seed
 composer run dev
 ```
 
@@ -38,3 +39,5 @@ Node 22.19.0
 <img width="1920" height="948" alt="image" src="https://github.com/user-attachments/assets/2110f0db-cd82-4a81-94a5-1462ec4debf1" />
 <img width="1920" height="948" alt="image" src="https://github.com/user-attachments/assets/5aef3499-c2e7-43fd-a4db-3e74b38e7ade" />
 <img width="378" height="777" alt="image" src="https://github.com/user-attachments/assets/f7e68872-4bfe-410c-84c4-3e99f97eea98" />
+<img width="378" height="777" alt="image" src="https://github.com/user-attachments/assets/669dcf38-453c-4a67-a36c-01a5cf687917" />
+
