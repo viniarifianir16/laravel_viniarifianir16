@@ -23,7 +23,6 @@ Node 22.19.0
 
 ## Library
 - Livewire Starter Kit
-- Laravel Volt
 - Flux UI
 - TailwindCSS
 - Bootstrap
