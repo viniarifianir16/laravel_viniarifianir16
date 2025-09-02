@@ -44,6 +44,12 @@
 
 <script>
     $(document).ready(function() {
+        $('#filter-hospital').select2({
+            placeholder: "-- Filter Rumah Sakit --",
+            allowClear: true,
+            width: 'resolve'
+        });
+
         var table = $('#patient-table').DataTable({
             processing: true,
             serverSide: true,
@@ -81,10 +87,9 @@
                 }
             ]
         });
-    });
-
-    $('#filter-hospital').change(function() {
-        table.ajax.reload();
+        $('#filter-hospital').change(function() {
+            table.ajax.reload();
+        });
     });
 
     $(document).on("click", ".delete-btn", function() {
