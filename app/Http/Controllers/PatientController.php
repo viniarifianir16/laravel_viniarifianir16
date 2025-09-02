@@ -62,9 +62,9 @@ class PatientController extends Controller
      */
     public function create()
     {
-        $hospital = Hospital::orderBy('name')->get();
+        $hospitals = Hospital::orderBy('name')->get();
         return view('pages.patient.form-patient', [
-            'hospital' => $hospital,
+            'hospitals' => $hospitals,
             'breadcrumbs' => [
                 ['label' => 'Data Pasien', 'url' => route('patient.index')],
                 ['label' => 'Tambah Data', 'url' => route('patient.create')],

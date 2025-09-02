@@ -15,8 +15,7 @@
                     </a>
                 </div>
                 <div>
-                    <select
-                        id="filter-hospital"class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-fit p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                    <select id="filter-hospital">
                         <option value="">-- Filter Rumah Sakit --</option>
                         @foreach ($hospitals as $hospital)
                             <option value="{{ $hospital->id }}">{{ $hospital->name }}</option>
