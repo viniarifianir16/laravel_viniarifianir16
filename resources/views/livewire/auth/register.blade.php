@@ -15,6 +15,18 @@ new #[Layout('components.layouts.auth')] class extends Component {
     public string $password = '';
     public string $password_confirmation = '';
 
+    protected $rules = [
+        'name' => ['required', 'string', 'max:255'],
+        'username' => ['required', 'string', 'max:50', 'regex:/^[a-z0-9._-]+$/', 'unique:users,username'],
+        'email' => ['required', 'email', 'max:255', 'unique:users,email'],
+        'password' => ['required', 'string', 'min:8', 'confirmed'],
+    ];
+
+    public function updatedUsername($value): void
+    {
+        $this->username = strtolower(str_replace(' ', '', $value));
+    }
+
     /**
      * Handle an incoming registration request.
      */
@@ -22,7 +34,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
     {
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255', 'unique:' . User::class],
+            'username' => ['required', 'string', 'max:255', 'regex:/^[a-z0-9._-]+$/', 'unique:' . User::class],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -48,7 +60,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
         <flux:input wire:model="name" :label="__('Name')" type="text" required autofocus autocomplete="name"
             :placeholder="__('Full name')" />
 
-        <!-- Name -->
+        <!-- Username -->
         <flux:input wire:model="username" :label="__('Username')" type="text" required autofocus
             autocomplete="username" :placeholder="__('Username')" />
 
