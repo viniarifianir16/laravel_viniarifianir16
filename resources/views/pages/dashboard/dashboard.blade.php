@@ -11,7 +11,7 @@
                 <div class="flex flex-col sm:flex-row gap-6">
                     <!-- Rumah Sakit -->
                     <div
-                        class="flex items-center gap-3 w-50 bg-white/20 dark:bg-zinc-900/40 rounded-lg px-4 py-3 shadow-sm">
+                        class="flex items-center gap-3 w-50 bg-white/20 dark:bg-zinc-900 rounded-lg px-4 py-3 shadow-sm">
                         <i class="bi bi-hospital text-3xl"></i>
                         <div>
                             <h4 class="text-xl font-bold">{{ $countHospitals }}</h4>
@@ -21,7 +21,7 @@
 
                     <!-- Pasien -->
                     <div
-                        class="flex items-center gap-3 w-50 bg-white/20 dark:bg-zinc-900/40 rounded-lg px-4 py-3 shadow-sm">
+                        class="flex items-center gap-3 w-50 bg-white/20 dark:bg-zinc-900 rounded-lg px-4 py-3 shadow-sm">
                         <i class="bi bi-person-raised-hand text-3xl"></i>
                         <div>
                             <h4 class="text-xl font-bold">{{ $countPatients }}</h4>
