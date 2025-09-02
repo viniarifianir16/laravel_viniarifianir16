@@ -81,4 +81,48 @@
             table.ajax.reload();
         });
     });
+
+    $(document).on("click", ".delete-btn", function() {
+        let id = $(this).data("id");
+
+        Swal.fire({
+            title: "Yakin hapus data?",
+            text: "Data tidak bisa dikembalikan setelah dihapus!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Ya, hapus!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Menghapus...",
+                    text: "Mohon tunggu sebentar",
+                    allowOutsideClick: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+                $.ajax({
+                    url: "/patient/" + id,
+                    type: "DELETE",
+                    data: {
+                        _token: "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            Swal.fire("Berhasil!", response.message, "success");
+                            $('#patient-table').DataTable().ajax
+                                .reload();
+                        } else {
+                            Swal.fire("Gagal!", response.message, "error");
+                        }
+                    },
+                    error: function(xhr) {
+                        Swal.fire("Error!", "Terjadi kesalahan server!", "error");
+                    }
+                });
+            }
+        });
+    });
 </script>
