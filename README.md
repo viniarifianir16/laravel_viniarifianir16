@@ -17,7 +17,7 @@ Node 22.19.0
     
 ## Features
 - CRUD Hospital Data
-- CRUD Patient
+- CRUD Patient Data
 - Filter Data by Hospital
 - Support Dark Mode
 - Responsive Mobile
