@@ -63,6 +63,7 @@ test('user can delete their account', function () {
 
     expect($user->fresh())->toBeNull();
     expect(auth()->check())->toBeFalse();
+    // expect(\Illuminate\Support\Facades\Auth::check())->toBeFalse();
 });
 
 test('correct password must be provided to delete account', function () {

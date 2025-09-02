@@ -8,6 +8,7 @@ use Livewire\Volt\Component;
 
 new class extends Component {
     public string $name = '';
+    public string $username = '';
     public string $email = '';
 
     /**
@@ -29,9 +30,10 @@ new class extends Component {
 
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'lowercase', 'max:255', Rule::unique(User::class)->ignore($user->id)],
+            'username' => ['required', 'string', 'max:50', 'regex:/^[a-z0-9._-]+$/', Rule::unique(User::class)->ignore($user->id)],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($user->id)],
         ]);
+        $validated['username'] = strtolower(str_replace(' ', '', $validated['username']));
 
         $user->fill($validated);
 
@@ -61,12 +63,17 @@ new class extends Component {
 
         Session::flash('status', 'verification-link-sent');
     }
+
+    public function updatedUsername($value): void
+    {
+        $this->username = strtolower(str_replace(' ', '', $value));
+    }
 }; ?>
 
 <section class="w-full">
     @include('partials.settings-heading')
 
-    <x-settings.layout :heading="__('Profile')" :subheading="__('Update your name and email address')">
+    <x-settings.layout :heading="__('Profile')" :subheading="__('Update your name, username and email address')">
         <form wire:submit="updateProfileInformation" class="my-6 w-full space-y-6">
             <flux:input wire:model="name" :label="__('Name')" type="text" required autofocus autocomplete="name" />
             <flux:input wire:model="username" :label="__('Username')" type="text" required autofocus
